@@ -15,6 +15,8 @@ class CreateServingsTable extends Migration
     {
         Schema::create('servings', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('beverage_id');
             $table->timestamps();
         });
     }
