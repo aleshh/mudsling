@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Beverage;
 
-class BeverageController extends Controller
+class BeveragesController extends Controller
 {
     public function index() {
         // $beverages = Beverage::all();

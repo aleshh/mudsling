@@ -7,7 +7,7 @@ use App\Beverage;
 use App\Serving;
 use Carbon\Carbon;
 
-class ServingController extends Controller
+class ServingsController extends Controller
 {
     public function index()
     {
