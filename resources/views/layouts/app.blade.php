@@ -13,19 +13,20 @@
   <header>
     <div class="container">
       <!-- <h1><a href="/home">Cannonball</a></h1> -->
+
       <nav>
         @auth
           <a href="/home">Drink!</a>
           <a href="/servings">Today</a>
           <div class="cannon">C</div>
           <a href="/beverages">Beverages</a>
-          <a href="/about">About</a>
-          @else
-            <a href="{{ route('login') }}">Login</a>
-            <div class="cannon">C</div>
-            <a href="{{ route('register') }}">Register</a>
+          <!-- <a href="/about">About</a> -->
+          <a href="{{ route('logout') }}">Logout</a>
+        @else
+          <a href="{{ route('login') }}">Login</a>
+          <div class="cannon">C</div>
+          <a href="{{ route('register') }}">Register</a>
         @endauth
-
       </nav>
     </div>
   </header>

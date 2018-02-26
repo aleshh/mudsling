@@ -11,7 +11,8 @@ class BeveragesController extends Controller
     public function index() {
         // $beverages = Beverage::all();
         // $beverages = Beverage::orderBy('updated_at', 'desc')->get();
-        $beverages = Beverage::latest()->get();
+        $id = Auth::id();
+        $beverages = Beverage::where('user_id', $id)->latest()->get();
         return view('beverages.index', compact('beverages'));
     }
 
