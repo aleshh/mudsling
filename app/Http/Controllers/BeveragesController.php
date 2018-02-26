@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Beverage;
 
 class BeveragesController extends Controller
@@ -38,7 +39,10 @@ class BeveragesController extends Controller
         // $beverage->strength = request('strength');
         // $beverage->save();
 
-        Beverage::create(request(['name', 'category', 'size', 'strength']));
+        $id = Auth::id();
+        $request['user_id'] = $id;
+
+        Beverage::create(request(['user_id', 'name', 'category', 'size', 'strength']));
 
         return redirect('/');
     }
