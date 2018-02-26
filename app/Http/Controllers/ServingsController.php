@@ -17,6 +17,13 @@ class ServingsController extends Controller
         return view('servings.index', compact('servings', 'oldServings'));
     }
 
+    public function create() {
+        $beverages = Beverage::orderBy('updated_at', 'desc')->get();
+        $servingsCount = Serving::todayCount();
+        $todayAlcohol = Serving::todayAlcohol();
+        return view('servings.create', compact('beverages', 'servingsCount', 'todayAlcohol'));
+    }
+
     public function store(Request $request)
     {
         Serving::create(request(['beverage_id']));
