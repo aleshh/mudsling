@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 use App\Beverage;
 use App\Serving;
-use Carbon\Carbon;
 
 class ServingsController extends Controller
 {
@@ -18,7 +20,7 @@ class ServingsController extends Controller
     }
 
     public function create() {
-        $beverages = Beverage::orderBy('updated_at', 'desc')->get();
+        $beverages = Beverage::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
         $servingsCount = Serving::todayCount();
         $todayAlcohol = Serving::todayAlcohol();
         return view('servings.create', compact('beverages', 'servingsCount', 'todayAlcohol'));

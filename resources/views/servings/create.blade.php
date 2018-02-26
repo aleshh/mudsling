@@ -26,13 +26,11 @@
 @endforeach
 
 <form>
-    <!-- <button class="add-serving-button"> -->
-        <a href="/beverages/create" class="add-serving-button">
-            <h3>New</h3>
-            Add a new beverage
+    <a href="/beverages/create" class="add-serving-button">
+        <h3>New</h3>
+        Add a new beverage
 
-        </a>
-    </button>
-<!-- </form> -->
+    </a>
+</form>
 
 @endsection
