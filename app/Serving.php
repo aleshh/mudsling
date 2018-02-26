@@ -5,16 +5,19 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+use App\Beverage;
+use App\User;
+
 class Serving extends Model
 {
     protected $guarded = [];
 
     public function beverage() {
-        $this->belongsTo(Beverage::class);
+        return $this->belongsTo(Beverage::class);
     }
 
     public function user() {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public static function todayCount() {
@@ -25,7 +28,7 @@ class Serving extends Model
 
     public static function todayAlcohol() {
         $servings = Serving::where('created_at', '>=', Carbon::today())
-        ->get();
+            ->get();
 
         $todayAlcohol = 0;
 

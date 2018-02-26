@@ -40,10 +40,11 @@ class BeveragesController extends Controller
         // $beverage->strength = request('strength');
         // $beverage->save();
 
-        $id = Auth::id();
-        $request['user_id'] = $id;
+        $request['user_id'] = Auth::id();
 
-        Beverage::create(request(['user_id', 'name', 'category', 'size', 'strength']));
+        Beverage::create(
+            request(['user_id', 'name', 'category', 'size', 'strength'])
+        );
 
         return redirect('/');
     }
