@@ -27,14 +27,14 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/beverages', 'BeveragesController@index');
-Route::get('/beverages/create', 'BeveragesController@create');
-Route::get('/beverages/{beverage}', 'BeveragesController@show');
-Route::post('/beverages', 'BeveragesController@store');
+Route::get('/beverages', 'BeveragesController@index')->middleware('auth');
+Route::get('/beverages/create', 'BeveragesController@create')->middleware('auth');
+Route::get('/beverages/{beverage}', 'BeveragesController@show')->middleware('auth');
+Route::post('/beverages', 'BeveragesController@store')->middleware('auth');
 
-Route::get('/servings', 'ServingsController@index');
-Route::get('/drink', 'ServingsController@create');
-Route::post('/servings', 'ServingsController@store');
+Route::get('/servings', 'ServingsController@index')->middleware('auth');
+Route::get('/drink', 'ServingsController@create')->middleware('auth');
+Route::post('/servings', 'ServingsController@store')->middleware('auth');
 // Route::get('/servings', 'ServingsController@show');
 // Route::get('/servings', 'ServingsController@edit');
 // Route::get('/servings', 'ServingsController@destroy');
