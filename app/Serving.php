@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 use App\Beverage;
@@ -22,12 +23,14 @@ class Serving extends Model
 
     public static function todayCount() {
         return Serving::where('created_at', '>=', Carbon::today())
+            ->where('user_id', Auth::id())
             ->get()
             ->count();
     }
 
     public static function todayAlcohol() {
-        $servings = Serving::where('created_at', '>=', Carbon::today())
+        $servings = Serving::where('created_at', '>=', Carbon::today())            ->where('user_id', Auth::id())
+            ->where('user_id', Auth::id())
             ->get();
 
         $todayAlcohol = 0;
