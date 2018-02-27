@@ -27,12 +27,6 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-
-Route::get('/home', function() {
-    return redirect('/');
-})->name('home');
-
-
 Route::get('/beverages', 'BeveragesController@index');
 Route::get('/beverages/create', 'BeveragesController@create');
 Route::get('/beverages/{beverage}', 'BeveragesController@show');
