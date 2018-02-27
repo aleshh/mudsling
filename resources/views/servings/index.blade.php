@@ -5,36 +5,39 @@
 
   <h2>Today</h2>
 
-  @include('layouts.serving-status')
+  <div class="border-bottom">
+    @include('layouts.serving-status')
+  </div>
 
   @foreach ($servings as $serving)
 
-    <div class="show-serving">
-      {{ $serving->created_at->diffForHumans() }}
-      <br>
-      <h3>
+    <div class="border-bottom">
+      <h4>
         {{ $serving->beverage->name }}
-      </h3>
+      </h4>
+      <p>
+        {{ $serving->created_at->diffForHumans() }}
+      </p>
     </div>
-    <br>
 
   @endforeach
 
 
   @if($oldServings->count())
 
-    <h2>Older</h2>
+    <h2 class="border-bottom" >Older</h2>
 
     @foreach ($oldServings as $serving)
 
-      <div class="show-serving">
-        {{ $serving->created_at->diffForHumans() }}
-        <br>
-        <h3>
+      <div class="border-bottom">
+        <h4>
           {{ $serving->beverage->name }}
-        </h3>
+        </h4>
+        <p>
+          {{ $serving->created_at->diffForHumans() }}
+        </p>
       </div>
-      <br>
+
     @endforeach
 
   @endif
