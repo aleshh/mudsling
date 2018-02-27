@@ -14,9 +14,11 @@ class ServingsController extends Controller
     public function index()
     {
         $servings =    Serving::where('created_at', '>=', Carbon::today())
+            ->where('user_id', Auth::id())
             ->latest()
             ->get();
         $oldServings = Serving::where('created_at', '<',  Carbon::today())
+            ->where('user_id', Auth::id())
             ->latest()
             ->get();
 
