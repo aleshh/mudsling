@@ -2,11 +2,7 @@
 
 @section('content')
 
-@if($servingsCount > 0)
-    <div class="servings-status">
-    {{ $servingsCount }} drinks so far today, {{ $todayAlcohol }} oz. of alcohol
-    </div>
-@endif
+@include('layouts.serving-status')
 
 <h2>What ya drinking?</h2>
 

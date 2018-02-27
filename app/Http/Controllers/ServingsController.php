@@ -17,12 +17,17 @@ class ServingsController extends Controller
             ->where('user_id', Auth::id())
             ->latest()
             ->get();
+
         $oldServings = Serving::where('created_at', '<',  Carbon::today())
             ->where('user_id', Auth::id())
             ->latest()
             ->get();
 
-        return view('servings.index', compact('servings', 'oldServings'));
+        $todayCount = Serving::todayCount();
+        $todayAlcohol = Serving::todayAlcohol();
+
+        return view('servings.index',
+            compact('servings', 'oldServings', 'todayCount', 'todayAlcohol'));
     }
 
     public function create() {
@@ -30,15 +35,14 @@ class ServingsController extends Controller
             ->orderBy('updated_at', 'desc')
             ->get();
 
-        $servingsCount = Serving::todayCount();
+        $todayCount = Serving::todayCount();
         $todayAlcohol = Serving::todayAlcohol();
         return view('servings.create',
-            compact('beverages', 'servingsCount', 'todayAlcohol'));
+            compact('beverages', 'todayCount', 'todayAlcohol'));
     }
 
     public function store(Request $request)
     {
-        // dd(Auth::id());
         $request['user_id'] = Auth::id();
 
         Serving::create(request(['user_id', 'beverage_id']));

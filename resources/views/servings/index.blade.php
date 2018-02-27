@@ -5,6 +5,8 @@
 
   <h2>Today</h2>
 
+  @include('layouts.serving-status')
+
   @foreach ($servings as $serving)
 
     <div class="show-serving">
