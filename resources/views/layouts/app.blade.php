@@ -21,7 +21,8 @@
           <div class="cannon">C</div>
           <a href="/beverages">Beverages</a>
           <!-- <a href="/about">About</a> -->
-          <a href="{{ route('logout') }}">Logout</a>
+          <!-- <a href="{{ route('logout') }}">Logout</a> -->
+          <a href="/account">Account</a>
         @else
           <a href="{{ route('login') }}">Login</a>
           <div class="cannon">C</div>

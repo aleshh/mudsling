@@ -25,7 +25,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/account', 'AccountController@index')->middleware('auth');
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/beverages', 'BeveragesController@index')->middleware('auth');
 Route::get('/beverages/create', 'BeveragesController@create')->middleware('auth');
