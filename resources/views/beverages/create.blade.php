@@ -5,26 +5,29 @@
 
 <h2>Add a Beverage</h2>
 
-<form method="POST" action="/beverages" >
+<form method="POST" class="input-form" action="/beverages" >
 
   @csrf
 
-  <div class="input-form">
+
+  <select name="category" id="category">
+    <option value="Beer">Beer</option>
+    <option value="Wine">Wine</option>
+    <option value="Liquor">Liquor</option>
+    <option value="Cocktail">Cocktail</option>
+  </select>
+
+  <div>
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" placeholder="Type of Drink">
+    <input type="text" name="name" id="name" placeholder="Name of Drink">
   </div>
 
-  <div class="input-form">
-    <label for="category">Category</label>
-    <input type="text" name="category" id="category" placeholder="Beer/Wine/Whiskey/etc.">
-  </div>
-
-  <div class="input-form">
+  <div>
     <label for="size">Size</label>
     <input type="text" name="size" id="size" placeholder="Ounces">
   </div>
 
-  <div class="input-form">
+  <div>
     <label for="strength">Strength</label>
     <input type="text" name="strength" id="strength" placeholder="% alcohol">
   </div>

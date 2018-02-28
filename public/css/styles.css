@@ -166,7 +166,8 @@ ul {
   margin-top: 5px;
 }
 
-.input-form input {
+.input-form input,
+.input-form select {
   font-family: 'Rakkas', serif;
   border-radius: 5px;
   border: 1px solid gray;
@@ -174,7 +175,16 @@ ul {
   width: 100%;
   padding-left: 5px;
   margin-bottom: 5px;
+}
 
+.input-form .checkbox input,
+.input-form .checkbox label {
+  display: inline-block;
+  width: unset;
+}
+.input-form .checkbox input {
+  position: relative;
+  bottom: 3px;
 }
 
 .input-form button, .submit-button {
