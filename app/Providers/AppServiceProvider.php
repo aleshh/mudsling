@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Serving;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        $todayCount = Serving::todayCount();
+        $todayAlcohol = Serving::todayAlcohol();
+        \View::share('todayCount', $todayCount);
+        \View::share('todayAlcohol', $todayAlcohol);
     }
 
     /**

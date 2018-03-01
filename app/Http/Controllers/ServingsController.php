@@ -23,8 +23,8 @@ class ServingsController extends Controller
             ->latest()
             ->get();
 
-        $todayCount = Serving::todayCount();
-        $todayAlcohol = Serving::todayAlcohol();
+        // $todayCount = Serving::todayCount();
+        // $todayAlcohol = Serving::todayAlcohol();
 
         return view('servings.index',
             compact('servings', 'oldServings', 'todayCount', 'todayAlcohol'));
@@ -35,8 +35,8 @@ class ServingsController extends Controller
             ->orderBy('updated_at', 'desc')
             ->get();
 
-        $todayCount = Serving::todayCount();
-        $todayAlcohol = Serving::todayAlcohol();
+        // $todayCount = Serving::todayCount();
+        // $todayAlcohol = Serving::todayAlcohol();
         return view('servings.create',
             compact('beverages', 'todayCount', 'todayAlcohol'));
     }
