@@ -2,8 +2,6 @@
 
 @section('content')
 
-@include('layouts.serving-status')
-
 <h2>What ya drinking?</h2>
 
 @foreach ($beverages as $beverage)

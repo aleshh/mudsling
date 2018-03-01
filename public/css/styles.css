@@ -147,8 +147,6 @@ ul {
    border-bottom: 1px dotted #444;
  }
 
-
-
 /*
  *  form styles
  */
@@ -214,3 +212,29 @@ ul {
   cursor: pointer;
 }
 
+/*
+ *  consumption graph
+ */
+
+.consumption-graph {
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background-color: green;
+  height: 50px;
+  text-align: center;
+}
+
+.consumption-graph-today {
+  width: 0;
+  height: 100%;
+  background-color: yellow;
+  position: fixed;
+}
+
+.consumption-graph-message,
+.consumption-graph-message .servings-status {
+  text-align: center;
+  margin-top: 15px;
+  color: white;
+}

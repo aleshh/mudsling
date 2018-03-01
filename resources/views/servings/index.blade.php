@@ -5,10 +5,6 @@
 
   <h2>Today</h2>
 
-  <div class="border-bottom">
-    @include('layouts.serving-status')
-  </div>
-
   @foreach ($servings as $serving)
 
     <div class="border-bottom">

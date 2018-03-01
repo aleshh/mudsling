@@ -38,6 +38,13 @@
     </div>
   </main>
 
+  <div class="consumption-graph">
+    <div class="consumption-graph-today">
+    </div>
+    <div class="consumption-graph-message">
+      @include('layouts.serving-status')
+    </div>
+  </div>
 
 </body>
 </html>
