@@ -15,11 +15,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        $todayCount = Serving::todayCount();
-        $todayAlcohol = Serving::todayAlcohol();
-        \View::share('todayCount', $todayCount);
-        \View::share('todayAlcohol', $todayAlcohol);
+        view()->composer('layouts.app', function($view) {
+            $view->with('todayCount', Serving::todayCount());
+            $view->with('todayAlcohol', Serving::todayAlcohol());
+        });
+        // dd(\Auth::id());
+        // $todayCount = Serving::todayCount();
+        // $todayAlcohol = Serving::todayAlcohol();
+        // \View::share('todayCount', $todayCount);
+        // \View::share('todayAlcohol', $todayAlcohol);
     }
 
     /**
