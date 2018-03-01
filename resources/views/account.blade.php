@@ -7,12 +7,12 @@
 
   <form method="POST" class="input-form border-bottom" action="/account" >
 
+    <input type="hidden" name="_method" value="patch" />
+
     @csrf
 
-    <div>
-      <label for="maximumConsumption">Daily Maximum Alcohol Target</label>
-      <input value="{{ \Auth::user()->maximumConsumption }}" type="text" name="maximumConsumption" id="maximumConsumption" placeholder="in Oz">
-    </div>
+    <label for="maximumConsumption">Daily Maximum Alcohol Target</label>
+    <input value="{{ \Auth::user()->maximumConsumption }}" type="text" name="maximumConsumption" id="maximumConsumption" placeholder="in Oz">
 
     <button type="submit" class="submit-button">Submit</button>
   </form>

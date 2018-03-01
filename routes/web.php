@@ -27,8 +27,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/account', 'AccountController@index')->middleware('auth');
-// Route::patch('/account', 'AccountController@update');
-Route::post('/account', 'AccountController@update');
+Route::patch('/account', 'AccountController@update')->middleware('auth');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

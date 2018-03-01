@@ -11,9 +11,7 @@ class AccountController extends Controller
     }
 
     public function update(Request $request) {
-
         $user = \Auth::user();
-
         $user->maximumConsumption = $request['maximumConsumption'];
         $user->save();
 
