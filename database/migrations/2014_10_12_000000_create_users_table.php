@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->decimal('maximumConsumption', 4, 1)->default(0);  // total quantity in ounces
+            $table->decimal('maximumConsumption', 4, 1)->nullable();  // total quantity in ounces
             $table->rememberToken();
             $table->timestamps();
         });
