@@ -49,4 +49,8 @@ class Serving extends Model
         return $todayAlcohol;
     }
 
+    public static function todayPercentage() {
+        return static::todayAlcohol() / Auth::user()->maximumConsumption * 100;
+    }
+
 }

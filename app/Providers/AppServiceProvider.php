@@ -18,12 +18,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.app', function($view) {
             $view->with('todayCount', Serving::todayCount());
             $view->with('todayAlcohol', Serving::todayAlcohol());
+            $view->with('todayPercentage', Serving::todayPercentage());
         });
-        // dd(\Auth::id());
-        // $todayCount = Serving::todayCount();
-        // $todayAlcohol = Serving::todayAlcohol();
-        // \View::share('todayCount', $todayCount);
-        // \View::share('todayAlcohol', $todayAlcohol);
     }
 
     /**

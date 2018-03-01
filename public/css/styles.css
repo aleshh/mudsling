@@ -222,19 +222,19 @@ ul {
   position: fixed;
   background-color: green;
   height: 50px;
-  text-align: center;
 }
 
 .consumption-graph-today {
   width: 0;
   height: 100%;
-  background-color: yellow;
+  background-color: rgb(208, 208, 35);
   position: fixed;
 }
 
-.consumption-graph-message,
-.consumption-graph-message .servings-status {
+.consumption-graph-message {
   text-align: center;
-  margin-top: 15px;
+  padding-top: 15px;
   color: white;
+  position: fixed;
+  width: 100%;
 }

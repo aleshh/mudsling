@@ -1,9 +1,13 @@
-@if($todayCount > 0)
-  <div class="servings-status">
-  {{ $todayCount }} drinks so far today, {{ $todayAlcohol }} oz. of alcohol
+<div class="consumption-graph">
+  <div class="consumption-graph-today" style="width: {{ $todayPercentage }}%">
   </div>
-@else
-  <div class="servings-status">
-    No drinks yet today
+  <div class="consumption-graph-message">
+
+    @if($todayCount > 0)
+      {{ $todayCount }} drinks so far today, {{ $todayAlcohol }} oz. of alcohol
+    @else
+        No drinks yet today
+    @endif
+
   </div>
-@endif
+</div>
