@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h2>Account</h2>
+<h2>{{ \Auth::user()->name }}</h2>
 
   <form method="POST" class="input-form border-bottom" action="/account" >
 

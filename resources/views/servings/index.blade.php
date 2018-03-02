@@ -3,36 +3,29 @@
 
 @section('content')
 
-  <h2>Today</h2>
+<p>
+  Today: {{ \Carbon\Carbon::now() }}
+</p>
 
-  @foreach ($servings as $serving)
+  @if($servings->count())
 
-    <div class="border-bottom">
-      <h4>
-        {{ $serving->beverage->name }}
-      </h4>
-      <p>
-        {{ $serving->created_at->diffForHumans() }}
-      </p>
-    </div>
+    <h2 class="border-bottom">Today</h2>
 
-  @endforeach
+    @foreach ($servings as $serving)
 
+      @include('partials.serving-listing', $serving)
+
+    @endforeach
+
+  @endif
 
   @if($oldServings->count())
 
-    <h2 class="border-bottom" >Older</h2>
+    <h2 class="border-bottom" >Before Today</h2>
 
     @foreach ($oldServings as $serving)
 
-      <div class="border-bottom">
-        <h4>
-          {{ $serving->beverage->name }}
-        </h4>
-        <p>
-          {{ $serving->created_at->diffForHumans() }}
-        </p>
-      </div>
+      @include('partials.serving-listing', $serving)
 
     @endforeach
 

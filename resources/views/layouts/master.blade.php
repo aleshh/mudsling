@@ -38,7 +38,9 @@
     </div>
   </main>
 
-  @include('partials.servings-status')
+  @auth
+    @include('partials.servings-status')
+  @endauth
 
 </body>
 </html>

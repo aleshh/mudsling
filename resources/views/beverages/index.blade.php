@@ -3,19 +3,22 @@
 
 @section('content')
 
-<h2>Beverages</h2>
+    <h2>Beverages</h2>
 
-<ul>
     @foreach ($beverages as $beverage)
-        <li>
-            <a href="beverages/{{$beverage->id}}">
-                <strong>{{ $beverage->name }}</strong>
-                ({{ $beverage->size * $beverage->strength / 100}} oz. of alcohol)
-            </a>
-        </li>
+        <a href="beverages/{{$beverage->id}}">
+            <div class="border-bottom">
+                <h3>{{ $beverage->name }}</h3>
+                {{$beverage->size }} oz., {{$beverage->strength }}%
+                ({{ $beverage->size * $beverage->strength / 100}} oz. alcohol)
+            </div>
+        </a>
     @endforeach
-</ul>
 
-<p><a href="beverages/create">Add a beverage</a></p>
+    <br>
+
+    <p>
+        <a class="submit-button" href="beverages/create">Add a beverage</a>
+</p>
 
 @endsection
