@@ -63,7 +63,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 46px;
+  height: 50px;
   background-color: #ccc;
   opacity: .98;
   color: white;
@@ -104,9 +104,8 @@ nav a:hover {
   font-family: 'Rakkas', serif;
   font-size: 37px;
   text-align: center;
-  height: 51px;
+  height: 54px;
   width: 40px;
-  /* background-color: rgb(236, 236, 0); */
   background-color: #999;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   color: #444;
@@ -114,7 +113,8 @@ nav a:hover {
 }
 
 main {
-  margin-top: 46px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 10px 25px;
   background-color: #eee;
 }
