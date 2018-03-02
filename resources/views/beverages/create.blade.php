@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 
@@ -35,6 +35,6 @@
   <button type="submit" class="submit-button">Submit</button>
 </form>
 
-@include('layouts.errors')
+@include('partials.errors')
 
 @endsection

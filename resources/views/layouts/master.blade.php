@@ -38,7 +38,7 @@
     </div>
   </main>
 
-  @include('layouts.serving-status')
+  @include('partials.servings-status')
 
 </body>
 </html>
