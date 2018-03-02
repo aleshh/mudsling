@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('layouts.app', function($view) {
+        view()->composer('layouts.serving-status', function($view) {
             $view->with('todayCount', Serving::todayCount());
             $view->with('todayAlcohol', Serving::todayAlcohol());
             $view->with('todayPercentage', Serving::todayPercentage());
