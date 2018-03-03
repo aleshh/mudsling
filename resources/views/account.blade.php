@@ -7,7 +7,7 @@
 
   <form method="POST" class="input-form border-bottom" action="/account" >
 
-    <input type="hidden" name="_method" value="patch" />
+    @method('PATCH')
 
     @csrf
 
