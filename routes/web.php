@@ -35,6 +35,7 @@ Route::get('/beverages', 'BeveragesController@index')->middleware('auth');
 Route::get('/beverages/create', 'BeveragesController@create')->middleware('auth');
 Route::get('/beverages/{beverage}', 'BeveragesController@show')->middleware('auth');
 Route::post('/beverages', 'BeveragesController@store')->middleware('auth');
+Route::patch('/beverages', 'BeveragesController@update')->middleware('auth');
 Route::get('/beverages/{beverage}/edit', 'BeveragesController@edit');
 Route::delete('/beverages/{beverage}', 'BeveragesController@destroy');
 

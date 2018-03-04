@@ -22,7 +22,8 @@ class BeveragesController extends Controller
     }
 
     public function create() {
-        return view('beverages.form');
+        $beverage = new Beverage;
+        return view('beverages.form', compact('beverage'));
     }
 
     public function edit(Beverage $beverage) {
@@ -48,13 +49,6 @@ class BeveragesController extends Controller
             'strength' => 'required|numeric'
         ]);
 
-        // $beverage = new Beverage;
-        // $beverage->name = request('name');
-        // $beverage->category = request('category');
-        // $beverage->size = request('size');
-        // $beverage->strength = request('strength');
-        // $beverage->save();
-
         $request['user_id'] = Auth::id();
 
         Beverage::create(
@@ -62,5 +56,25 @@ class BeveragesController extends Controller
         );
 
         return redirect('/');
+    }
+
+    public function update(Request $request) {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'category' => 'required',
+            'size' => 'required|numeric',
+            'strength' => 'required|numeric'
+        ]);
+
+        $beverage = Beverage::findOrFail($request['id']);
+
+        $beverage->name = $request['name'];
+        $beverage->category = $request['category'];
+        $beverage->size = $request['size'];
+        $beverage->strength = $request['strength'];
+        $beverage->save();
+
+        return redirect('/beverages');
     }
 }
