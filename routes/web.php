@@ -36,7 +36,7 @@ Route::get('/beverages/create', 'BeveragesController@create')->middleware('auth'
 Route::get('/beverages/{beverage}', 'BeveragesController@show')->middleware('auth');
 Route::post('/beverages', 'BeveragesController@store')->middleware('auth');
 Route::get('/beverages/{beverage}/edit', 'BeveragesController@edit');
-Route::delete('/beverages/{beverage', 'BeveragesController@destroy');
+Route::delete('/beverages/{beverage}', 'BeveragesController@destroy');
 
 Route::get('/servings', 'ServingsController@index')->middleware('auth');
 Route::get('/drink', 'ServingsController@create')->middleware('auth');

@@ -27,8 +27,8 @@ class BeveragesController extends Controller
     }
 
     public function destroy(Beverage $beverage) {
-        $beverage->destroy();
-        return view('beverages.index');
+        $beverage->delete();
+        return redirect('/beverages');
     }
 
     public function store(Request $request) {
