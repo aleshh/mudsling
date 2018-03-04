@@ -183,7 +183,9 @@ ul {
   bottom: 3px;
 }
 
-.input-form button, .submit-button {
+.input-form button,
+.submit-button,
+.small-button {
   font-size: 21px;
   padding: 5px 20px;
   border-radius: 5px;
@@ -192,6 +194,15 @@ ul {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-top: 10px;
+}
+
+.small-button {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+.delete-button {
+  background-color: red;
 }
 
 /*

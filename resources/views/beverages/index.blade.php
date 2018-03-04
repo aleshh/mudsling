@@ -6,13 +6,22 @@
     <h2>Beverages</h2>
 
     @foreach ($beverages as $beverage)
-        <a href="beverages/{{$beverage->id}}">
-            <div class="border-bottom">
+        <div class="border-bottom">
+            <a href="beverages/{{$beverage->id}}">
                 <h3>{{ $beverage->name }}</h3>
                 {{$beverage->size }} oz., {{$beverage->strength }}%
                 ({{ $beverage->size * $beverage->strength / 100}} oz. alcohol)
-            </div>
-        </a>
+            </a>
+            <br>
+
+            <a class="small-button" href="beverages/{{$beverage->id}}/edit">Edit</a>
+            <form method="POST" style="display: inline" action="beverages/{{$beverage->id}}" >
+                @method('DELETE')
+                @csrf
+
+                <button type="submit" class="small-button delete-button" >Delete</button>
+            </form>
+        </div>
     @endforeach
 
     <br>

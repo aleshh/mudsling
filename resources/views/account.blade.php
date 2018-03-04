@@ -8,7 +8,6 @@
   <form method="POST" class="input-form border-bottom" action="/account" >
 
     @method('PATCH')
-
     @csrf
 
     <label for="maximumConsumption">Daily Maximum Alcohol Target</label>
