@@ -19,7 +19,7 @@ class BeveragesController extends Controller
     }
 
     public function create() {
-        return view('beverages.create');
+        return view('beverages.form');
     }
 
     public function store(Request $request) {

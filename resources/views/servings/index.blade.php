@@ -4,7 +4,7 @@
 @section('content')
 
 <p>
-  Today: {{ \Carbon\Carbon::now() }}
+  Today: {{ now() }}
 </p>
 
   @if($servings->count())
