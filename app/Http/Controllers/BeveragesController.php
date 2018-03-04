@@ -27,7 +27,11 @@ class BeveragesController extends Controller
     }
 
     public function destroy(Beverage $beverage) {
-        $beverage->delete();
+        if ($beverage->servings->count()) {
+            // soft delete
+        } else {
+            $beverage->delete();
+        }
         return redirect('/beverages');
     }
 
