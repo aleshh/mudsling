@@ -10,7 +10,10 @@ class BeveragesController extends Controller
 {
     public function index() {
         $id = Auth::id();
-        $beverages = Beverage::where('user_id', $id)->latest()->get();
+        $beverages = Beverage::where('user_id', $id)
+            ->where('deleted', 0)
+            ->latest()
+            ->get();
         return view('beverages.index', compact('beverages'));
     }
 
@@ -28,7 +31,8 @@ class BeveragesController extends Controller
 
     public function destroy(Beverage $beverage) {
         if ($beverage->servings->count()) {
-            // soft delete
+            $beverage->deleted = true;
+            $beverage->save();
         } else {
             $beverage->delete();
         }

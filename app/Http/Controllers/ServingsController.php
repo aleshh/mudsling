@@ -29,6 +29,7 @@ class ServingsController extends Controller
 
     public function create() {
         $beverages = Beverage::where('user_id', Auth::id())
+            ->where('deleted', 0)
             ->orderBy('updated_at', 'desc')
             ->get();
 
