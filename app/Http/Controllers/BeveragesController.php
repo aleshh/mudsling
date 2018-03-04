@@ -22,6 +22,15 @@ class BeveragesController extends Controller
         return view('beverages.form');
     }
 
+    public function edit(Beverage $beverage) {
+        return view('beverages.form', compact('beverage'));
+    }
+
+    public function destroy(Beverage $beverage) {
+        $beverage->destroy();
+        return view('beverages.index');
+    }
+
     public function store(Request $request) {
 
         $this->validate($request, [
