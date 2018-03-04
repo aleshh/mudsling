@@ -15,8 +15,6 @@
 
   @csrf
 
-
-
   <select  value="{{ $beverage->category }}" name="category" id="category">
     <option value="Beer">Beer</option>
     <option value="Wine">Wine</option>

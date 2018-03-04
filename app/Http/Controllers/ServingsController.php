@@ -43,7 +43,7 @@ class ServingsController extends Controller
 
         Serving::create(request(['user_id', 'beverage_id']));
 
-        $beverage = Beverage::find(request('beverage_id'));
+        $beverage = Beverage::findOrFail(request('beverage_id'));
         $beverage->updated_at = Carbon::now();
         $beverage->save();
 
