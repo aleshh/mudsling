@@ -14,7 +14,11 @@ Uses Laravel's default Auth scaffolding. I've made almost no attempt at visual "
 * switch to using named routes
 * Group routes so I don't need to repeat ->middleware('auth') for each of them
 * if no maximum daily consumption, make status bar gray
+* Select a color for each beverage
 
 ### Bigger
+* Deploy to Dreamhost with ability to push updates
 * Update Today view to show graphs for each day
 * Streak tracking
+* Some sort of Untapped integration
+* Let a user make their consumption public
