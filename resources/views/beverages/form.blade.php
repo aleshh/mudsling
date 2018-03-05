@@ -37,12 +37,12 @@
 
   <div>
     <label for="size">Size</label>
-    <input value="{{ old('size', $beverage->size) }}" type="text" name="size" id="size" placeholder="Ounces">
+    <input value="{{ old('size', $beverage->size) + 0 }}" type="text" name="size" id="size" placeholder="Ounces">
   </div>
 
   <div>
     <label for="strength">Strength</label>
-    <input  value="{{ old('strength', $beverage->strength) }}" type="text" name="strength" id="strength" placeholder="% alcohol">
+    <input  value="{{ old('strength', $beverage->strength) + 0 }}" type="text" name="strength" id="strength" placeholder="% alcohol">
   </div>
 
   <button type="submit" class="submit-button">Submit</button>

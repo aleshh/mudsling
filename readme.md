@@ -11,9 +11,8 @@ Uses Laravel's default Auth scaffolding. I've made almost no attempt at visual "
 ## Todo
 
 ### Small
-* remove decimal point from integer quantities
 * if no maximum daily consumption, make status bar gray
-* switch to using named routes
+* beverage delete confirmation
 
 ### Bigger
 * Deploy to Dreamhost with ability to push updates
