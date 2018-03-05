@@ -1,20 +1,10 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 use App\Beverage;
 use App\Serving;
 use Illuminate\Support\Facades\Auth;
 
+Auth::routes();
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -24,27 +14,24 @@ Route::get('/', function () {
     }
 });
 
-Auth::routes();
+Route::middleware('auth')->group(function() {
+    Route::get('/account', 'AccountController@index');
+    Route::patch('/account', 'AccountController@update');
 
-Route::get('/account', 'AccountController@index')->middleware('auth');
-Route::patch('/account', 'AccountController@update')->middleware('auth');
+    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+    Route::get('/beverages', 'BeveragesController@index');
+    Route::get('/beverages/create', 'BeveragesController@create');
+    Route::get('/beverages/{beverage}', 'BeveragesController@show');
+    Route::post('/beverages', 'BeveragesController@store');
+    Route::patch('/beverages', 'BeveragesController@update');
+    Route::get('/beverages/{beverage}/edit', 'BeveragesController@edit');
+    Route::delete('/beverages/{beverage}', 'BeveragesController@destroy');
 
-Route::get('/beverages', 'BeveragesController@index')->middleware('auth');
-Route::get('/beverages/create', 'BeveragesController@create')->middleware('auth');
-Route::get('/beverages/{beverage}', 'BeveragesController@show')->middleware('auth');
-Route::post('/beverages', 'BeveragesController@store')->middleware('auth');
-Route::patch('/beverages', 'BeveragesController@update')->middleware('auth');
-Route::get('/beverages/{beverage}/edit', 'BeveragesController@edit');
-Route::delete('/beverages/{beverage}', 'BeveragesController@destroy');
-
-Route::get('/servings', 'ServingsController@index')->middleware('auth');
-Route::get('/drink', 'ServingsController@create')->middleware('auth');
-Route::post('/servings', 'ServingsController@store')->middleware('auth');
-// Route::get('/servings', 'ServingsController@show');
-// Route::get('/servings', 'ServingsController@edit');
-// Route::get('/servings', 'ServingsController@destroy');
+    Route::get('/drink', 'ServingsController@create');
+    Route::get('/servings', 'ServingsController@index');
+    Route::post('/servings', 'ServingsController@store');
+});
 
 Route::get('about', function() {
     return view('about');

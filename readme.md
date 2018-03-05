@@ -11,13 +11,13 @@ Uses Laravel's default Auth scaffolding. I've made almost no attempt at visual "
 ## Todo
 
 ### Small
-* switch to using named routes
-* Group routes so I don't need to repeat ->middleware('auth') for each of them
+* remove decimal point from integer quantities
 * if no maximum daily consumption, make status bar gray
-* Select a color for each beverage
+* switch to using named routes
 
 ### Bigger
 * Deploy to Dreamhost with ability to push updates
+* Select a color for each beverage
 * Update Today view to show graphs for each day
 * Streak tracking
 * Some sort of Untapped integration
