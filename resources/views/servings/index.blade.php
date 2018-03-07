@@ -4,7 +4,7 @@
 @section('content')
 
 <p>
-  Today: {{ now() }}
+  Now: {{ now()->format('g:i a, D., M. j, Y') }}
 </p>
 
   @if($servings->count())
