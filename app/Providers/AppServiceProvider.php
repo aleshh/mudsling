@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 use App\Serving;
 
@@ -20,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('todayAlcohol', Serving::todayAlcohol());
             $view->with('todayPercentage', Serving::todayPercentage());
         });
+        Schema::defaultStringLength(191);
     }
 
     /**

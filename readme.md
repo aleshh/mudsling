@@ -8,14 +8,18 @@ This is mostly a toy app I'm building to learn Laravel. Basic features:
 
 Uses Laravel's default Auth scaffolding. I've made almost no attempt at visual "design" in lieu of plowing ahead with features.
 
+A not-up-to-date running version is at [https://mudsling.alesh.com](https://mudsling.alesh.com).
+
 ## Todo
 
 ### Small
+* Localize time
+* Improve welcome screen
+* Improve account screen
 * if no maximum daily consumption, make status bar gray
 * beverage delete confirmation
 
 ### Bigger
-* Deploy to Dreamhost with ability to push updates
 * Select a color for each beverage
 * Update Today view to show graphs for each day
 * Streak tracking
