@@ -47,7 +47,7 @@ class BeveragesController extends Controller
     public function store(Request $request) {
 
         $this->validate($request, [
-            'name' => 'required|unique:beverages',
+            'name' => 'required',
             'category' => 'required',
             'size' => 'required|numeric',
             'strength' => 'required|numeric'
