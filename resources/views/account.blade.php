@@ -23,7 +23,7 @@
       3 × 12 × .05 = 1.8
     </p>
 
-    <label >Local Time</label>
+    <!-- <label >Local Time</label>
     <input value="{{ $hour }}"   type="text" name="userHour"   style="text-align:center;display:inline-block;width: 50px;"> :
     <input value="{{ $minute }}" type="text" name="userMinute" style="text-align:center;display:inline-block;width: 50px;">
     {{ $amPm }}
@@ -31,7 +31,8 @@
     <input value="{{ $hour }}"   type="hidden" name="originalHour"   >
     <input value="{{ $minute }}" type="hidden" name="originalMinute" >
     <input value="{{ $amPm }}" type="hidden" name="originalAmPm" >
-    <br>
+    <br> -->
+
     <button type="submit" class="submit-button">Submit</button>
   </form>
 

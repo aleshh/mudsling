@@ -29,13 +29,15 @@ class AccountController extends Controller
         $user = \Auth::user();
         $user->maximumConsumption = $request['maximumConsumption'];
 
-        $hourDiff   = $request['userHour'] - $request['originalHour'];
-        $minuteDiff = $request['userMinute'] - $request['originalMinute'];
+        // we will come back to this soon!
+        // $hourDiff   = $request['userHour'] - $request['originalHour'];
+        // $minuteDiff = $request['userMinute'] - $request['originalMinute'];
 
-        dd($hourDiff.":".$minuteDiff);
-        $userTime = new Carbon($request['userTime']);
+        // dd($hourDiff.":".$minuteDiff);
+        // $userTime = new Carbon($request['userTime']);
 
-        dd("change!");
+        // dd("change!");
+
         $user->save();
 
         return redirect('/');
