@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cannonball</title>
+    <title>Mudsling</title>
 
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -18,15 +18,15 @@
         @auth
           <a href="/drink">Drink!</a>
           <a href="/servings">Today</a>
-          <div class="cannon">C</div>
+          <div class="cannon">M</div>
           <a href="/beverages">Beverages</a>
           <!-- <a href="/about">About</a> -->
           <!-- <a href="{{ route('logout') }}">Logout</a> -->
           <a href="/account">Account</a>
         @else
-          <a href="{{ route('login') }}">Login</a>
-          <div class="cannon">C</div>
           <a href="{{ route('register') }}">Register</a>
+            <div class="cannon">M</div>
+          <a href="{{ route('login') }}">Login</a>
         @endauth
       </nav>
     </div>
