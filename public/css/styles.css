@@ -122,6 +122,7 @@ nav a:hover {
   text-align: center;
   height: 54px;
   width: 40px;
+  max-width: 40px;
   background-color: #999;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   color: #444;

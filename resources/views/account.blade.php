@@ -18,7 +18,7 @@
       id="maximumConsumption"
       placeholder="in Oz">
 
-    <p style="margin-bottom: 25px">
+    <p style="margin-bottom: 0">
       For example, three 12oz. beers with 5% alcohol:<br>
       3 × 12 × .05 = 1.8
     </p>
