@@ -14,7 +14,6 @@ A not-up-to-date running version is at [https://mudsling.alesh.com](https://muds
 
 ### Small
 * Localize time
-* Improve welcome screen
 * Improve account screen
 * if no maximum daily consumption, make status bar gray
 * beverage delete confirmation

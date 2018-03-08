@@ -33,6 +33,9 @@ class ServingsController extends Controller
             ->orderBy('updated_at', 'desc')
             ->get();
 
+        // if we don't have any beverages, redirect them to create one
+        if (!$beverages->count()) return redirect('/beverages/create');
+
         return view('servings.create',
             compact('beverages', 'todayCount', 'todayAlcohol'));
     }

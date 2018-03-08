@@ -3,7 +3,11 @@
 
 @section('content')
 
-<h2>Add a Beverage</h2>
+@if($beverage->id)
+  <h2>Edit Beverage</h2>
+@else
+  <h2>What ya drinking?</h2>
+@endif
 
 <form method="POST" class="input-form" action="/beverages" >
 
@@ -37,12 +41,20 @@
 
   <div>
     <label for="size">Size</label>
-    <input value="{{ old('size', $beverage->size) + 0 }}" type="text" name="size" id="size" placeholder="Ounces">
+    <input value="@php
+        // this will show the placeholder if value is 0
+        $val = old('size', $beverage->size) + 0;
+        if ($val) echo($val);
+      @endphp" type="text" name="size" id="size" placeholder="Ounces">
   </div>
 
   <div>
     <label for="strength">Strength</label>
-    <input  value="{{ old('strength', $beverage->strength) + 0 }}" type="text" name="strength" id="strength" placeholder="% alcohol">
+    <input  value="@php
+        // this will show the placeholder if value is 0
+        $val = old('strength', $beverage->strength) + 0;
+        if ($val) echo($val);
+      @endphp" type="text" name="strength" id="strength" placeholder="% alcohol">
   </div>
 
   <button type="submit" class="submit-button">Submit</button>

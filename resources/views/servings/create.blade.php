@@ -21,7 +21,7 @@
 
 <form>
     <a href="/beverages/create" class="add-serving-button">
-        <h3>New</h3>
+        <h3>Something else?</h3>
         Add a new beverage
 
     </a>

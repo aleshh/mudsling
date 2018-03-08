@@ -14,6 +14,10 @@ class BeveragesController extends Controller
             ->where('deleted', 0)
             ->latest()
             ->get();
+
+        // if we don't have any beverages, redirect them to create one
+        if (!$beverages->count()) return redirect('/beverages/create');
+
         return view('beverages.index', compact('beverages'));
     }
 

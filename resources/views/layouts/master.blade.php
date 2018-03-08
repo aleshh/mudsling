@@ -33,17 +33,20 @@
       <!-- <h1><a href="/home">Cannonball</a></h1> -->
 
       <nav>
+        <div class="cannon">
+            <a href="/">
+            <img src="/images/pint-glass-transparent.png">
+          </a>
+          </div>
         @auth
           <a href="/drink">Drink!</a>
           <a href="/servings">Today</a>
-          <div class="cannon">M</div>
           <a href="/beverages">Beverages</a>
           <!-- <a href="/about">About</a> -->
           <!-- <a href="{{ route('logout') }}">Logout</a> -->
           <a href="/account">Account</a>
         @else
           <a href="{{ route('register') }}">Register</a>
-            <div class="cannon">M</div>
           <a href="{{ route('login') }}">Login</a>
         @endauth
       </nav>
