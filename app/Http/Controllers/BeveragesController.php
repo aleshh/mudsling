@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Beverage;
+use App\Serving;
 
 class BeveragesController extends Controller
 {
@@ -53,11 +54,27 @@ class BeveragesController extends Controller
             'strength' => 'required|numeric'
         ]);
 
-        $request['user_id'] = Auth::id();
+        // $request['user_id'] = Auth::id();
 
-        Beverage::create(
-            request(['user_id', 'name', 'category', 'size', 'strength'])
-        );
+        // Beverage::create(
+        //     request(['user_id', 'name', 'category', 'size', 'strength'])
+        // );
+
+        $beverage = new Beverage;
+
+        $beverage->user_id = Auth::id();
+        $beverage->name = $request['name'];
+        $beverage->category = $request['category'];
+        $beverage->size = $request['size'];
+        $beverage->strength = $request['strength'];
+        $beverage->save();
+
+        if ($request['action'] == 'saveAndDrink') {
+            Serving::create([
+                'user_id'     => $beverage->user_id,
+                'beverage_id' => $beverage->id
+            ]);
+        }
 
         return redirect('/');
     }

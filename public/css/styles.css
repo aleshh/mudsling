@@ -211,7 +211,6 @@ ul {
   color: #ccc;
 }
 
-.input-form button,
 .btn,
 .submit-button,
 .small-button {
@@ -234,12 +233,14 @@ ul {
   background-color: #999;
 }
 
-.small-button {
+.small-button,
+.btn-small {
   padding: 4px 10px;
   font-size: 13px;
 }
 
-.delete-button {
+.delete-button,
+.btn-warning {
   background-color: red;
 }
 

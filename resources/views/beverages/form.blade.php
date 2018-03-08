@@ -57,7 +57,13 @@
       @endphp" type="text" name="strength" id="strength" placeholder="% alcohol">
   </div>
 
-  <button type="submit" class="submit-button">Submit</button>
+@if($beverage->id)
+  <button type="submit" class="btn">Save</button>
+@else
+  <button type="submit" name="action" value="saveAndDrink" class="btn">Save and Drink one!</button>
+  <button type="submit" name="action" value="saveDontDrink" class="btn btn-small btn-secondary">Just save for later</button>
+@endif
+
 </form>
 
 @include('partials.errors')
