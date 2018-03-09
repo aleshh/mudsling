@@ -5,6 +5,10 @@
 
 <p>
   Now: {{ now()->format('g:i a, D., M. j, Y') }}
+  <script>
+    var date = new Date();
+    console.log(date);
+  </script>
 </p>
 
   @if($servings->count())
