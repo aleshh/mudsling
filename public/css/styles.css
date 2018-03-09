@@ -275,6 +275,19 @@ ul {
   height: 50px;
 }
 
+.consumption-graph a {
+  color: white;
+  text-decoration: underline;
+}
+
+.consumption-graph-no-max-consumption {
+  background-color: #666;
+}
+
+.consumption-graph .consumption-graph-over-limit {
+  background-color: #d00;
+}
+
 .consumption-graph-today {
   width: 0;
   height: 100%;
