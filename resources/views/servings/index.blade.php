@@ -3,12 +3,16 @@
 
 @section('content')
 
+@php
+
+  $clientTime = new \Carbon\Carbon($_COOKIE['clientTime']);
+
+@endphp
+
 <p>
   Now: {{ now()->format('g:i a, D., M. j, Y') }}
-  <script>
-    var date = new Date();
-    console.log(date);
-  </script>
+  <br>
+  Client: {{ $clientTime->format('g:i a, D., M. j, Y') }}
 </p>
 
   @if($servings->count())

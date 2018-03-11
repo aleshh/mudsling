@@ -72,5 +72,9 @@
     @include('partials.servings-status')
   @endauth
 
+  <script>
+    document.cookie = "clientTime=" + new Date();
+  </script>
+
 </body>
 </html>
