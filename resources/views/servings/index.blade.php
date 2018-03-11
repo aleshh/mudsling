@@ -5,14 +5,18 @@
 
 @php
 
-  $clientTime = new \Carbon\Carbon($_COOKIE['clientTime']);
+  use Carbon\Carbon;
+
+  $clientTime = new Carbon($_COOKIE['clientTime']);
+  $clientOffset = $clientTime->timezone->getName();
+  $serverTime = new Carbon();
+  $serverTime->setTimezone($clientOffset);
 
 @endphp
 
 <p>
-  Now: {{ now()->format('g:i a, D., M. j, Y') }}
-  <br>
-  Client: {{ $clientTime->format('g:i a, D., M. j, Y') }}
+  Now: {{ $serverTime->format('g:i a, D., M. j, Y') }}
+
 </p>
 
   @if($servings->count())
