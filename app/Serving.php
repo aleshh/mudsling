@@ -12,6 +12,7 @@ use App\User;
 class Serving extends Model
 {
     protected $guarded = [];
+    protected $touches = ['beverage'];
 
     public function beverage() {
         return $this->belongsTo(Beverage::class);
