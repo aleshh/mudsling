@@ -3,6 +3,6 @@
     {{ $serving->beverage->name }}
   </h4>
   <p>
-    {{ $serving->created_at->diffForHumans() }}
+    At {{ \Carbon\Carbon::parse($serving->local_time)->format('g:i a') }}
   </p>
 </div>

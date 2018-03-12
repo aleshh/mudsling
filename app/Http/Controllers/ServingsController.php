@@ -44,7 +44,14 @@ class ServingsController extends Controller
     {
         $request['user_id'] = Auth::id();
 
-        Serving::create(request(['user_id', 'beverage_id']));
+        $clientTime = new Carbon($_COOKIE['clientTime']);
+        $clientOffset = $clientTime->timezone->getName();
+        $drinkTime = new Carbon();
+        $drinkTime->setTimezone($clientOffset);
+
+        $request['local_time'] = $drinkTime;
+
+        Serving::create(request(['user_id', 'beverage_id', 'local_time']));
 
         $beverage = Beverage::findOrFail(request('beverage_id'));
         $beverage->updated_at = Carbon::now();
