@@ -13,6 +13,18 @@ class ServingsController extends Controller
 {
     public function index()
     {
+        // $servings = Serving::where('user_id', Auth::id())
+        //     ->latest()
+        //     ->get();
+
+        // $grouped = $servings->groupBy(function ($serving) {
+        //     return substr($serving['local_time'], 0, 10);
+        // });
+
+        // $grouped->toArray();
+
+        // dd($grouped);
+
         $servings =    Serving::where('created_at', '>=', Carbon::today())
             ->where('user_id', Auth::id())
             ->latest()
@@ -24,7 +36,7 @@ class ServingsController extends Controller
             ->get();
 
         return view('servings.index',
-            compact('servings', 'oldServings', 'todayCount', 'todayAlcohol'));
+            compact('servings', 'oldServings'));
     }
 
     public function create() {
