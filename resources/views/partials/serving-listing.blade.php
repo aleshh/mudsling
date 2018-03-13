@@ -3,6 +3,10 @@
     {{ $serving->beverage->name }}
   </h4>
   <p>
-    At {{ \Carbon\Carbon::parse($serving->local_time)->format('g:i a') }}
+    @if($serving->local_time)
+      At {{ \Carbon\Carbon::parse($serving->local_time)->format('g:i a') }}
+    @else
+      Time n/a
+    @endif
   </p>
 </div>
