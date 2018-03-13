@@ -23,20 +23,29 @@
     <h3 class="border-bottom">{{ $day }}</h3>
 
     @foreach ($servings as $serving)
-      <div>
-        <h4>
-          {{ $serving->beverage->name }}
-        </h4>
-        <p>
-          @if($serving->local_time)
-            At {{ \Carbon\Carbon::parse($serving->local_time)->format('g:i a') }}
-          @else
-            Time n/a
-          @endif
-        </p>
-      </div>
 
-    @endforeach
-  @endforeach
+      @if ($loop->first)
+        {{ $serving['drinks'] }} drinks ,
+        {{ $serving['alcohol']}} oz. alcohol,
+        {{ $serving['percent']}}% of max. goal.
+        <div class="details" style="display: unset" >
+      @else
+        <div>
+          <h4>
+            {{ $serving->beverage->name }}
+          </h4>
+          <p>
+            @if($serving->local_time)
+              At {{ \Carbon\Carbon::parse($serving->local_time)->format('g:i a') }}
+            @else
+              Time n/a
+            @endif
+          </p>
+        </div>
+      @endif {{-- loop->first --}}
+
+    @endforeach {{-- serving --}}
+    </div> {{-- /.details --}}
+  @endforeach {{-- day --}}
 
 @endsection

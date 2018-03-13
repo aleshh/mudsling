@@ -21,19 +21,33 @@ class ServingsController extends Controller
             return substr($serving['local_time'], 0, 10);
         });
 
-        // $grouped->toArray();
+        foreach ($days as $day) {
+            $dayDrinks = 0;
+            $dayAlcohol = 0;
+            $dayPercent = 0;
+
+            foreach($day as $serving) {
+                $alcohol = $serving->beverage->size *
+                  $serving->beverage->strength / 100;
+
+                  $dayDrinks ++;
+                  $dayAlcohol += $alcohol;
+            }
+
+            $maxConsumption = Auth::user()->maximumConsumption;
+            if ($maxConsumption) {
+                $dayPercent = $dayAlcohol / $maxConsumption * 100;
+            }
+
+            $day->prepend([
+                'drinks' => $dayDrinks,
+                'alcohol' => $dayAlcohol,
+                'percent' => $dayPercent
+            ]);
+
+        }
 
         // dd($days);
-
-        // $servings =    Serving::where('created_at', '>=', Carbon::today())
-        //     ->where('user_id', Auth::id())
-        //     ->latest()
-        //     ->get();
-
-        // $oldServings = Serving::where('created_at', '<',  Carbon::today())
-        //     ->where('user_id', Auth::id())
-        //     ->latest()
-        //     ->get();
 
         return view('servings.index',
             compact('days'));
