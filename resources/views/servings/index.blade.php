@@ -16,31 +16,27 @@
 
 <p>
   Now: {{ $serverTime->format('g:i a, D., M. j, Y') }}
-
 </p>
 
-  @if($servings->count())
+  @foreach ($days as $day => $servings)
 
-    <h2 class="border-bottom">Today</h2>
+    <h3 class="border-bottom">{{ $day }}</h3>
 
     @foreach ($servings as $serving)
-
-      @include('partials.serving-listing', $serving)
-
-    @endforeach
-
-  @endif
-
-  @if($oldServings->count())
-
-    <h2 class="border-bottom" >Before Today</h2>
-
-    @foreach ($oldServings as $serving)
-
-      @include('partials.serving-listing', $serving)
+      <div>
+        <h4>
+          {{ $serving->beverage->name }}
+        </h4>
+        <p>
+          @if($serving->local_time)
+            At {{ \Carbon\Carbon::parse($serving->local_time)->format('g:i a') }}
+          @else
+            Time n/a
+          @endif
+        </p>
+      </div>
 
     @endforeach
-
-  @endif
+  @endforeach
 
 @endsection

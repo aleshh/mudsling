@@ -13,30 +13,30 @@ class ServingsController extends Controller
 {
     public function index()
     {
-        // $servings = Serving::where('user_id', Auth::id())
-        //     ->latest()
-        //     ->get();
+        $servings = Serving::where('user_id', Auth::id())
+            ->latest()
+            ->get();
 
-        // $grouped = $servings->groupBy(function ($serving) {
-        //     return substr($serving['local_time'], 0, 10);
-        // });
+        $days = $servings->groupBy(function ($serving) {
+            return substr($serving['local_time'], 0, 10);
+        });
 
         // $grouped->toArray();
 
-        // dd($grouped);
+        // dd($days);
 
-        $servings =    Serving::where('created_at', '>=', Carbon::today())
-            ->where('user_id', Auth::id())
-            ->latest()
-            ->get();
+        // $servings =    Serving::where('created_at', '>=', Carbon::today())
+        //     ->where('user_id', Auth::id())
+        //     ->latest()
+        //     ->get();
 
-        $oldServings = Serving::where('created_at', '<',  Carbon::today())
-            ->where('user_id', Auth::id())
-            ->latest()
-            ->get();
+        // $oldServings = Serving::where('created_at', '<',  Carbon::today())
+        //     ->where('user_id', Auth::id())
+        //     ->latest()
+        //     ->get();
 
         return view('servings.index',
-            compact('servings', 'oldServings'));
+            compact('days'));
     }
 
     public function create() {
