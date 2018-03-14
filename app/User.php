@@ -31,6 +31,9 @@ class User extends Authenticatable
 
     public static function today() {
 
+        // prevent crash on mobile safari webapp initial load
+        if (!isset($_COOKIE['clientTime'])) return Carbon::today();
+
         $clientTime = new Carbon($_COOKIE['clientTime']);
         $clientOffset = $clientTime->timezone->getName();
         $today = new Carbon();
