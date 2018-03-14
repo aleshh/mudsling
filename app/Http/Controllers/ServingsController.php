@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 use App\Beverage;
 use App\Serving;
+use App\User;
 
 class ServingsController extends Controller
 {
@@ -46,8 +47,6 @@ class ServingsController extends Controller
             ]);
 
         }
-
-        // dd($days);
 
         return view('servings.index',
             compact('days'));
