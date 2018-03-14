@@ -22,6 +22,8 @@ class ServingsController extends Controller
             return substr($serving['local_time'], 0, 10);
         });
 
+        $maxPercent = 100;
+
         foreach ($days as $day) {
             $dayDrinks = 0;
             $dayAlcohol = 0;
@@ -46,10 +48,12 @@ class ServingsController extends Controller
                 'percent' => $dayPercent
             ]);
 
+            if($dayPercent > $maxPercent) $maxPercent = $dayPercent;
+
         }
 
         return view('servings.index',
-            compact('days'));
+            compact('days', 'maxPercent'));
     }
 
     public function create() {

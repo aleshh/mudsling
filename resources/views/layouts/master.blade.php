@@ -49,8 +49,7 @@
           </div>
         @auth
           <a href="/drink">Drink!</a>
-          <a href="/servings">Today</a>
-          <a href="/beverages">Beverages</a>
+          <a href="/servings">History</a>
           <!-- <a href="/about">About</a> -->
           <!-- <a href="{{ route('logout') }}">Logout</a> -->
           <a href="/account">Account</a>

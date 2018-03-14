@@ -36,6 +36,13 @@
     <button type="submit" class="submit-button">Submit</button>
   </form>
 
+  <div class="border-bottom">
+    <h2>Beverages</h2>
+    <p>
+      <a href="/beverages">View, edit, or delete your beverages</a>
+    </p>
+  </div>
+
   <h2>Logged in</h2>
   <p>
     <a class="submit-button" href="/logout">Logout</a>

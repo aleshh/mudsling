@@ -3,34 +3,35 @@
 
 @section('content')
 
-@php
-
-  use Carbon\Carbon;
-
-  $clientTime = new Carbon($_COOKIE['clientTime']);
-  $clientOffset = $clientTime->timezone->getName();
-  $serverTime = new Carbon();
-  $serverTime->setTimezone($clientOffset);
-
-@endphp
-
-<p>
-  Now: {{ $serverTime->format('g:i a, D., M. j, Y') }}
-</p>
+  <h2>History</h2>
 
   @foreach ($days as $day => $servings)
 
-    <h3 class="border-bottom">{{ $day }}</h3>
+    <!-- <h3>{{ $day }}</h3> -->
 
     @foreach ($servings as $serving)
 
       @if ($loop->first)
-        {{ $serving['drinks'] }} drinks ,
+      <div class="history-graph-outer" >
+        <div class="history-graph-inner" style="
+          width: {{ $serving['percent'] / $maxPercent * 100 }}%;
+          @if ($serving['percent'] > 100)
+            background-color: red;
+          @else
+            background-color: green;
+          @endif
+          ">
+          &nbsp;
+        </div>
+      </div>
+        <strong>{{ $day }}:</strong>
+        {{ $serving['drinks'] }} drinks,
         {{ $serving['alcohol']}} oz. alcohol,
         {{ $serving['percent']}}% of max. goal.
+        <br><br>
         <div class="details" style="display: unset" >
       @else
-        <div>
+        <!-- <div>
           <h4>
             {{ $serving->beverage->name }}
           </h4>
@@ -41,7 +42,7 @@
               Time n/a
             @endif
           </p>
-        </div>
+        </div> -->
       @endif {{-- loop->first --}}
 
     @endforeach {{-- serving --}}
