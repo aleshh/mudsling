@@ -16,18 +16,23 @@
         <div class="history-graph-inner" style="
           width: {{ $serving['percent'] / $maxPercent * 100 }}%;
           @if ($serving['percent'] > 100)
-            background-color: red;
+            background-color: #d00;
           @else
             background-color: green;
           @endif
-          ">
+          @if(!$maxConsumptionSet)
+            background-color: #666;
+          @endif
+        ">
           &nbsp;
         </div>
       </div>
         <strong>{{ $day }}:</strong>
-        {{ $serving['drinks'] }} drinks,
-        {{ $serving['alcohol']}} oz. alcohol,
-        {{ $serving['percent']}}% of max. goal.
+        {{ $serving['drinks'] }} drinks &middot;
+        {{ $serving['alcohol'] }} oz. alcohol
+        @if($maxConsumptionSet)
+        &middot; {{ $serving['percent']}}% of max. goal.
+        @endif
         <br><br>
         <div class="details" style="display: unset" >
       @else

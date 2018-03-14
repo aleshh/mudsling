@@ -37,15 +37,21 @@ class ServingsController extends Controller
                   $dayAlcohol += $alcohol;
             }
 
+            $maxConsumptionSet = true;
             $maxConsumption = Auth::user()->maximumConsumption;
+            if (!$maxConsumption > 0 ) {
+                $maxConsumptionSet = false;
+                $maxConsumption = 1;
+
+            }
             if ($maxConsumption) {
                 $dayPercent = $dayAlcohol / $maxConsumption * 100;
             }
 
             $day->prepend([
                 'drinks' => $dayDrinks,
-                'alcohol' => $dayAlcohol,
-                'percent' => $dayPercent
+                'alcohol' => round($dayAlcohol, 1),
+                'percent' => round($dayPercent)
             ]);
 
             if($dayPercent > $maxPercent) $maxPercent = $dayPercent;
@@ -53,7 +59,7 @@ class ServingsController extends Controller
         }
 
         return view('servings.index',
-            compact('days', 'maxPercent'));
+            compact('days', 'maxPercent', 'maxConsumptionSet'));
     }
 
     public function create() {
