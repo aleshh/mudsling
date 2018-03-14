@@ -31,7 +31,9 @@ class User extends Authenticatable
 
     public static function today() {
 
-        // prevent crash on mobile safari webapp initial load
+        // prevent crash on mobile safari webapp initial load this might cause
+        // status bar to show wrong information before page refresh
+        // better solution would be to save client offset with user record
         if (!isset($_COOKIE['clientTime'])) return Carbon::today();
 
         $clientTime = new Carbon($_COOKIE['clientTime']);
