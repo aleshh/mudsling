@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 use App\Beverage;
 use App\Serving;
 
@@ -56,10 +58,6 @@ class BeveragesController extends Controller
 
         // $request['user_id'] = Auth::id();
 
-        // Beverage::create(
-        //     request(['user_id', 'name', 'category', 'size', 'strength'])
-        // );
-
         $beverage = new Beverage;
 
         $beverage->user_id = Auth::id();
@@ -70,9 +68,16 @@ class BeveragesController extends Controller
         $beverage->save();
 
         if ($request['action'] == 'saveAndDrink') {
+
+            $clientTime = new Carbon($_COOKIE['clientTime']);
+            $clientOffset = $clientTime->timezone->getName();
+            $drinkTime = new Carbon();
+            $drinkTime->setTimezone($clientOffset);
+
             Serving::create([
                 'user_id'     => $beverage->user_id,
-                'beverage_id' => $beverage->id
+                'beverage_id' => $beverage->id,
+                'local_time'  => $drinkTime
             ]);
         }
 
