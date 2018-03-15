@@ -34,6 +34,8 @@
       // https://gist.github.com/kylebarrow/1042026
       (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(chref=d.href).replace(e.href,"").indexOf("#")&&(!/^[a-z\+\.\-]+:/i.test(chref)||chref.indexOf(e.protocol+"//"+e.host)===0)&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone");
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 </head>
 <body>
   <div class="cragle"></div>
@@ -72,6 +74,7 @@
   @endauth
 
   <script>
+    feather.replace();
     document.cookie = "clientTime=" + new Date() + ";max-age=31536000";
   </script>
 
