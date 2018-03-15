@@ -29,9 +29,9 @@
       </div>
         <strong>{{ $day }}:</strong>
         {{ $serving['drinks'] }} drinks &middot;
-        {{ $serving['alcohol'] }} oz. alcohol
+        {{ $serving['alcohol'] }}&nbsp;oz.&nbsp;alcohol
         @if($maxConsumptionSet)
-        &middot; {{ $serving['percent']}}% of max. goal.
+        &middot; {{ $serving['percent']}}%&nbsp;of&nbsp;max.&nbsp;goal.
         @endif
         <br><br>
         <div class="details" style="display: unset" >

@@ -10,7 +10,7 @@
             <a href="beverages/{{$beverage->id}}">
                 <h3>{{ $beverage->name }}</h3>
                 {{$beverage->size + 0 }} oz., {{$beverage->strength }}%
-                ({{ $beverage->size * $beverage->strength / 100 }} oz. alcohol)
+                ({{ round($beverage->size * $beverage->strength) / 100 }} oz. alcohol)
             </a>
             <br>
 
