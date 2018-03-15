@@ -13,13 +13,12 @@ A not-up-to-date running version is at [https://mudsling.alesh.com](https://muds
 ## Todo
 
 ### Small
-* Localize time
+* Day ends at 5am, not midnight
 * Improve account screen
 * beverage delete confirmation
 
 ### Bigger
 * Select a color for each beverage
-* Update Today view to show graphs for each day
 * Streak tracking
 * Some sort of Untapped integration
 * Let a user make their consumption public
