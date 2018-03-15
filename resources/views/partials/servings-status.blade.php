@@ -19,10 +19,6 @@
           drinks,
         @endif
         {{ $todayAlcohol }} oz. alcohol
-
-      @if(\Auth::user()->maximumConsumption == 0)
-        &middot; <a href="/account">Set daily goal?</a>
-      @endif
     @else
         No drinks yet today
     @endif

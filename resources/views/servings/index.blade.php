@@ -28,7 +28,13 @@
         </div>
       </div>
         <strong>{{ $day }}:</strong>
-        {{ $serving['drinks'] }} drinks &middot;
+        {{ $serving['drinks'] }}
+          @if($serving['drinks'] == 1)
+            drink
+          @else
+            drinks
+          @endif
+           &middot;
         {{ $serving['alcohol'] }}&nbsp;oz.&nbsp;alcohol
         @if($maxConsumptionSet)
         &middot; {{ $serving['percent']}}%&nbsp;of&nbsp;max.&nbsp;goal.
@@ -53,5 +59,11 @@
     @endforeach {{-- serving --}}
     </div> {{-- /.details --}}
   @endforeach {{-- day --}}
+
+  @if(!$maxConsumptionSet)
+    <p>
+      You can <a href="/account">set a maximum daily target</a>.
+    </p>
+  @endif
 
 @endsection
