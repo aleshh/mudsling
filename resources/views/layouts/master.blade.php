@@ -72,7 +72,7 @@
   @endauth
 
   <script>
-    document.cookie = "clientTime=" + new Date();
+    document.cookie = "clientTime=" + new Date() + ";max-age=31536000";
   </script>
 
 </body>
