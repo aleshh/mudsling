@@ -15,7 +15,7 @@
             <br>
 
             <a class="small-button" href="beverages/{{$beverage->id}}/edit">Edit</a>
-            <form method="POST" style="display: inline" action="beverages/{{$beverage->id}}" >
+            <form class="confirm-submit" method="POST" style="display: inline" action="beverages/{{$beverage->id}}" >
                 @method('DELETE')
                 @csrf
 

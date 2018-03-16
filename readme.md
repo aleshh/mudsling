@@ -15,7 +15,6 @@ A not-up-to-date running version is at [https://mudsling.alesh.com](https://muds
 ### Small
 * Day ends at 5am, not midnight
 * Improve account screen
-* beverage delete confirmation
 
 ### Bigger
 * Select a color for each beverage
