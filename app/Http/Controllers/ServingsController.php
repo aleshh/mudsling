@@ -90,4 +90,16 @@ class ServingsController extends Controller
 
         return redirect('/');
     }
+
+    // this just deletes the most recent serving
+    public function destroy() {
+
+        $lastServing = Serving::where('user_id', Auth::id())
+            ->latest()
+            ->first()
+            ->delete();
+        // dd($lastServing);
+
+        return redirect('/servings');
+    }
 }

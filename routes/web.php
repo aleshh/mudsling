@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/drink', 'ServingsController@create');
     Route::get('/servings', 'ServingsController@index');
     Route::post('/servings', 'ServingsController@store');
+    Route::delete('/servings', 'ServingsController@destroy');
 });
 
 Route::get('about', function() {

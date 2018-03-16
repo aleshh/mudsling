@@ -36,6 +36,7 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
 </head>
 <body>
   <div class="cragle"></div>
@@ -76,6 +77,15 @@
   <script>
     feather.replace();
     document.cookie = "clientTime=" + new Date() + ";max-age=31536000";
+
+    $(function() {
+      $('.confirm-submit').submit(function(event){
+        if(!confirm("Are you sure?")){
+          event.preventDefault();
+        }
+      });
+    });
+
   </script>
 
 </body>

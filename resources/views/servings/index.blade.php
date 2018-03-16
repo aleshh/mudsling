@@ -3,6 +3,15 @@
 
 @section('content')
 
+    <!-- <a class="btn btn-small" href="/servings">Undo last drink</a> -->
+
+    <form class="confirm-submit" method="POST" action="servings" >
+      @method('DELETE')
+      @csrf
+
+      <button type="submit" class="btn btn-small btn-delete" >Undo last drink</button>
+    </form>
+
   <h2>History</h2>
 
   @foreach ($days as $day => $servings)
