@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use User\User;
+use Carbon\Carbon;
 
 use App\Beverage;
 
@@ -56,6 +57,18 @@ class Serving extends Model
         } else {
             return 0;
         }
+    }
+
+    public static function nameOfDay($day) {
+        $today = Carbon::today();
+        $day = Carbon::parse($day);
+
+        if ($day->isToday())     return "Today";
+        if ($day->isYesterday()) return "Yesterday";
+        $daysAgo = $day->diffInDays($today);
+
+        if ($daysAgo < 7 ) return $day->format('l');
+        return $day->format('F d, Y');
     }
 
 }

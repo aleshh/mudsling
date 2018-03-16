@@ -3,8 +3,6 @@
 
 @section('content')
 
-    <!-- <a class="btn btn-small" href="/servings">Undo last drink</a> -->
-
     <form class="confirm-submit" method="POST" action="servings" >
       @method('DELETE')
       @csrf
@@ -20,7 +18,15 @@
       @foreach ($servings as $serving)
 
         @if ($loop->first)
-          <strong>{{ $day }}</strong>
+
+          <div class="show-hide">
+            <i data-feather="chevron-down" class="shadow"></i>
+            <i data-feather="chevron-down"></i>
+          </div>
+
+          <strong>
+            {{ App\Serving::nameOfDay($day) }}
+          </strong>
 
           <div class="history-graph-outer" >
             <div class="history-graph-inner" style="
@@ -38,9 +44,7 @@
             </div>
           </div>
 
-          <div class="show-hide" style="float:right">
-            <i data-feather="chevron-down"></i>
-          </div>
+          <div class="details" style="display: none" >
 
           {{ $serving['drinks'] }}
             @if($serving['drinks'] == 1)
@@ -54,7 +58,7 @@
           @if($maxConsumptionSet)
             &middot; {{ $serving['percent']}}%&nbsp;of&nbsp;max.&nbsp;goal.
           @endif
-          <div class="details" style="display: none" >
+
         @else {{-- $serving->first (i.e., end of header, start of servings) --}}
           <div>
           <br>

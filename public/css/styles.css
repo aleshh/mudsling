@@ -282,6 +282,29 @@ ul {
  *  History screen
  */
 
+.show-hide {
+  float: right;
+  /* background-color: lightblue; */
+  padding: 3px;
+  margin-top: -9px;
+  height: 53px;
+  width: 49px;
+}
+.show-hide svg {
+  position: relative;
+  top: -25px;
+  right: -5px;
+  height: 30px;
+  width: 30px;
+}
+
+.show-hide svg.shadow {
+  stroke: #eee;
+  stroke-width: 10px;
+  /* right: -34px; */
+  top: 9px;
+}
+
  .rotate {
   transform:             rotate( -180deg );
       -moz-transform:    rotate( -180deg );
