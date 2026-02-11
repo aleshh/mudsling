@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,800');
+@import url('https://fonts.googleapis.com/css?family=Rakkas');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  color: #444;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Rakkas', serif;
+  font-weight: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ccc;
+}
+
+p {
+  margin-bottom: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}
+
+p a {
+  text-decoration: underline;
+  color: black;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.cragle {
+  z-index: -1;
+  position: fixed;
+  background-color: #eee;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+header {
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #ccc;
+  opacity: 0.98;
+  color: white;
+  z-index: 10;
+}
+
+header .container {
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  height: 100%;
+}
+
+nav a {
+  height: 100%;
+  padding-top: 14px;
+  flex: auto;
+  text-align: center;
+  display: block;
+  font-size: 15px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  font-family: 'Rakkas', serif;
+}
+
+@media screen and (max-width: 420px) {
+  nav a {
+    padding-top: 17px;
+    font-size: 11px;
+  }
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #666;
+  color: white;
+}
+
+.cannon {
+  flex: auto;
+  font-family: 'Rakkas', serif;
+  font-size: 37px;
+  text-align: center;
+  height: 54px;
+  width: 40px;
+  max-width: 40px;
+  background-color: #999;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  color: #444;
+  margin: 0 5px;
+}
+
+.cannon img {
+  width: 20px;
+  margin-top: -5px;
+}
+
+main {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  padding: 10px 25px;
+  background-color: #eee;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 35px;
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+.border-bottom {
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px dotted #444;
+}
+
+.border-top {
+  padding-top: 10px;
+  margin-top: 5px;
+  border-top: 1px dotted #444;
+}
+
+.input-form {
+  margin-bottom: 10px;
+}
+
+.input-form label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.input-form input,
+.input-form select {
+  font-family: 'Rakkas', serif;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 26px;
+  width: 100%;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+.input-form input[type='checkbox'] {
+  width: auto;
+}
+
+::placeholder {
+  color: #ccc;
+}
+
+.btn,
+.submit-button,
+.small-button {
+  display: inline-block;
+  font-size: 21px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: #3f9fff;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #999;
+}
+
+.btn-small,
+.small-button {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+.delete-button,
+.btn-delete {
+  background-color: red;
+  color: white;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.add-serving-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: none;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-serving-button h3 {
+  margin-bottom: 4px;
+}
+
+.form-error {
+  color: #b00020;
+  font-weight: 600;
+}
+
+.form-success {
+  color: #2d7a2d;
+  font-weight: 600;
+}
+
+.loading {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.show-hide {
+  float: right;
+  padding: 3px;
+  margin-top: -9px;
+  height: 53px;
+  width: 49px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.show-hide svg {
+  position: relative;
+  top: -5px;
+  right: -5px;
+  height: 30px;
+  width: 30px;
+}
+
+.rotate {
+  transform: rotate(-180deg);
+  transition: transform 550ms ease;
+}
+
+.revert {
+  transform: rotate(-360deg);
+  transition: transform 550ms ease;
+}
+
+.history-graph-outer {
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin: 6px 0 10px;
+}
+
+.history-graph-inner {
+  height: 10px;
+  border-radius: 5px;
+}
+
+.consumption-graph {
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background-color: green;
+  height: 50px;
+}
+
+.consumption-graph-no-max-consumption {
+  background-color: #666;
+}
+
+.consumption-graph .consumption-graph-over-limit {
+  background-color: #d00;
+}
+
+.consumption-graph-today {
+  width: 0;
+  height: 100%;
+  background-color: rgb(208, 208, 35);
+  position: fixed;
+}
+
+.consumption-graph-message {
+  text-align: center;
+  padding-top: 15px;
+  color: white;
+  position: fixed;
+  width: 100%;
+}
