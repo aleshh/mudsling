@@ -19,7 +19,7 @@ port = 54324
 
 [auth]
 site_url = "http://localhost:5173"
-additional_redirect_urls = ["http://localhost:5173/reset-password"]
+additional_redirect_urls = ["http://localhost:5173/reset-password", "http://localhost:5174/reset-password"]
 jwt_expiry = 3600
 enable_signup = true
 

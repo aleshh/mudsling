@@ -18,6 +18,15 @@ npm install
 npm run dev
 ```
 
+You can also run everything in one command after `.env` is set:
+
+```bash
+npm run dev:local
+```
+
+`npm run dev:local` will reset the local database (with retry on 502 errors),
+create/refresh `.env.local` using `supabase status`, and then start Vite.
+
 ## Supabase Auth Notes
 - The local stack uses `supabase/config.toml` for redirect URLs.
 - Email confirmation is enabled by default in Supabase. The app will show a
@@ -37,4 +46,5 @@ npm run dev
 - `src/components`: layout + shared UI pieces
 - `src/lib`: date + alcohol math helpers
 - `supabase/migrations`: tables, triggers, and RLS policies
-- `supabase/seed.sql`: demo account + sample data
+- `supabase/seed.sql`: intentionally empty (auth seeding handled by script)
+- `scripts/seed-local.mjs`: creates demo user + sample data locally
